@@ -1,0 +1,39 @@
+
+<div class="bg">
+  <div class="btn">
+    <button class="gif-graph-btn" (click)="openScrollableContent(openModal)">Open Modal</button>
+  </div>
+</div>
+
+<ng-template #openModal let-modal>
+  <div class="bg">
+    <div class="inner-btn">
+    <button class="gif-graph-btn" (click)="openGif(gif)">Show GIF </button>
+    <button class="gif-graph-btn" (click)="openGraph(graph)">Show GRAPH </button>
+  </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+
+<ng-template #gif let-modal>
+  <div>
+    <img src="../assets/Spinner-1s-200px.gif" style="width:300px">
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+
+<ng-template #graph let-modal>
+   <div class="highcharts-figure">
+    <highcharts-chart [Highcharts]="Highcharts" [options]="barGraphOptions">
+    </highcharts-chart>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div> 
+</ng-template>
+<!-- <app-test></app-test> -->
+<router-outlet></router-outlet>
